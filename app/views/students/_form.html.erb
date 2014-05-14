@@ -1,0 +1,57 @@
+<%= form_for @student, remote: true, :authenticity_token => true, html: {class: "form-horizontal center", :id => 'student_form'} do |f| %>
+   <div class="modal-body">
+    <ul class="errors"></ul>
+    <fieldset >
+ 
+    <%= f.hidden_field :group_id, value: @group.id %>
+   
+    <div class="control-student">
+      <%= f.label :first_name, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :first_name%>
+      </div>
+    </div>
+
+    <div class="control-student">
+      <%= f.label :last_name, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :last_name%>
+      </div>
+    </div>
+
+    <div class="control-student">
+      <%= f.label :address, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :address%>
+      </div>
+    </div>
+
+    <div class="control-student">
+      <%= f.label :phone_number, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :phone_number%>
+      </div>
+    </div>
+
+    <div class="control-student">
+      <%= f.label :email, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :email%>
+      </div>
+    </div>
+
+    <div class="control-student">
+      <%= f.label :school, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :school %>
+      </div>
+    </div>
+    
+   </div>
+  <div class="modal-footer">
+    <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+    <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+  </div>
+  </fieldset>
+ 
+<% end %>

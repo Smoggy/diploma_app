@@ -1,0 +1,14 @@
+<% @students.each do |student| %>
+<tr >
+	<td><%= "#{student.first_name} #{student.last_name}" %></td>
+	<td><%= student.address %></td>
+	<td><%= student.phone_number %></td>
+	<td><%= student.email %></td>
+	<td>
+		<%= link_to("edit", edit_student_path(student) , remote: true, class: "btn btn-primary") %>
+	</td>
+	<td>
+		<%= link_to("delete", student_delete_path(student), remote: true, class: "btn btn-danger") %>
+	</td>
+</tr>
+<% end %>

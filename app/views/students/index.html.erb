@@ -1,0 +1,30 @@
+<h1> All Students of the <%= @group.name %> </h1>
+
+
+<%= link_to("Add", new_student_path(format: @group.id), remote: true,  class: "btn btn-primary") %>
+<%= link_to "Excel", xls_index_path(format: "xls") %>
+<div class="table-responsive">
+<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Delete</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody class="student-index" >
+      <%= render 'index' %>
+      </tbody>
+</table>
+
+</div>
+<div id="student-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div id="inner-student-modal" class="modal-content"></div>
+  </div>
+</div>
+
+

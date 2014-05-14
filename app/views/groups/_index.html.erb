@@ -1,0 +1,15 @@
+<% @groups.each do |group| %>
+<tr >
+	<td><%= group.name %></td>
+	<td><%= group.students.count %></td>
+	<td>
+		<%= link_to("add students", students_path(group), class: "btn btn-primary") %>
+	</td>
+	<td>
+		<%= link_to("edit", edit_group_path(group) , remote: true, class: "btn btn-primary") %>
+	</td>
+	<td>
+		<%= link_to("delete", group_delete_path(group), remote: true, class: "btn btn-danger") %>
+	</td>
+</tr>
+<% end %>

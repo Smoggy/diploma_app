@@ -1,0 +1,37 @@
+<%= form_for @school, remote: true, :authenticity_token => true, html: {class: "form-horizontal center", :id => 'school_form'} do |f| %>
+   <div class="modal-body">
+    <ul class="errors"></ul>
+    <fieldset >
+ 
+
+   
+    <div class="control-school">
+      <%= f.label :name, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :name%>
+      </div>
+    </div>
+
+     <div class="control-school">
+      <%= f.label :address, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :address%>
+      </div>
+    </div>
+
+     <div class="control-school">
+      <%= f.label :phone, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :phone %>
+      </div>
+    </div>
+
+    
+   </div>
+  <div class="modal-footer">
+    <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+    <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+  </div>
+  </fieldset>
+ 
+<% end %>
