@@ -1,14 +1,16 @@
 class StudentsController < ApplicationController
 	respond_to :html, :js
 
-  def index
-  	@group = Group.find(params[:format])
-  	@students = @group.students
+
+  def students_of_group
+    @group = Group.find_by_id(params[:format])
+    @students = @group.students
   end
 
-  def xls_index
-    @students = Student.all
+  def index
+  	@students = Student.all
   end
+
 
   def new
   	@group = Group.find(params[:format])
@@ -55,6 +57,19 @@ class StudentsController < ApplicationController
       @student.destroy
   end
 
+  def xls_creator
+    package = Axlsx::Package.new
+    workbook = package.workbook
+    @students = Student.all
+    workbook.add_worksheet(name: "Basic work sheet") do |sheet|
+      sheet.add_row ["First Name", "Last Name", "Marks", "Percentage", "Grade", "Remark"]
+      @students.each do |s|
+         sheet.add_row [s.first_name, s.last_name, s.address, s.email]
+      end
+    end
+    package.serialize "Basic.xlsx"
+    send_file("#{Rails.root}/Basic.xlsx", filename: "Basic.xlsx", type: "application/vnd.ms-excel")
+  end
 
   private
   	

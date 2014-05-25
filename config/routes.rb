@@ -10,6 +10,14 @@ Rails.application.routes.draw do
     get "delete"
   end
 
+  resources :subjects do
+    get "delete"
+  end
+
+  resources :teachers do
+    get "delete"
+  end
+
 
   devise_for :users
 
@@ -17,7 +25,8 @@ Rails.application.routes.draw do
 
 
   controller :students do
-    get 'xls_index' => 'students#xls_index'
+    get 'xls_index' => 'students#xls_creator'
+    get 'students_of_group' => 'students#students_of_group'
   end
 
   controller :static_pages do 

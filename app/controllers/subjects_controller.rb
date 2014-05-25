@@ -8,8 +8,11 @@ class SubjectsController < ApplicationController
 	end
 
 	def create
-		@sujects = Subject.all
+		@subjects = Subject.all
 		@subject = Subject.new subject_params
+
+
+		@subject.save
 
   		respond_to do |format|
        		format.html { render :index }

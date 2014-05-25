@@ -1,0 +1,13 @@
+<% @subjects.each do |subject| %>
+<tr >
+	<td><%= subject.name %></td>
+	<td><%= subject.description %></td>
+	
+	<td>
+		<%= link_to("edit", edit_subject_path(subject) , remote: true, class: "btn btn-primary") %>
+	</td>
+	<td>
+		<%= link_to("delete", subject_delete_path(subject), remote: true, class: "btn btn-danger") %>
+	</td>
+</tr>
+<% end %>

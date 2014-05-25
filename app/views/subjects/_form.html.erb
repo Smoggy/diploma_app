@@ -1,0 +1,31 @@
+<%= form_for @subject, remote: true, :authenticity_token => true, html: {class: "form-horizontal center", :id => 'subject_form'} do |f| %>
+   <div class="modal-body">
+    <ul class="errors"></ul>
+    <fieldset >
+ 
+
+   
+    <div class="control-subject">
+      <%= f.label :name, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :name%>
+      </div>
+    </div>
+
+    <div class="control-subject">
+      <%= f.label :description, class: "control-label" %>
+      <div class="controls">
+          <%= f.text_field :description %>
+      </div>
+    </div>
+
+
+    
+   </div>
+  <div class="modal-footer">
+    <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+    <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+  </div>
+  </fieldset>
+ 
+<% end %>
