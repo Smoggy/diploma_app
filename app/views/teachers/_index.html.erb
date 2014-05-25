@@ -1,0 +1,17 @@
+<% @teachers.each do |teacher| %>
+<tr >
+	<td><%= teacher.first_name %></td>
+	<td><%= teacher.last_name %></td>
+	<td><%= teacher.subject.name %></td>	
+	<td><%= teacher.email %></td>
+	<td><%= teacher.phone %></td>
+
+
+	<td>
+		<%= link_to("edit", edit_teacher_path(teacher) , remote: true, class: "btn btn-primary") %>
+	</td>
+	<td>
+		<%= link_to("delete", teacher_delete_path(teacher), remote: true, class: "btn btn-danger") %>
+	</td>
+</tr>
+<% end %>

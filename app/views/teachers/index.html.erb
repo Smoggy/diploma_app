@@ -1,0 +1,28 @@
+<h1> All teachers </h1>
+
+
+<%= link_to("Add", new_teacher_path, remote: true,  class: "btn btn-primary") %>
+<div class="table-responsive">
+<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Nae</th>
+          <th>Last Name</th>
+          <th>Subject</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody class="teacher-index" >
+      <%= render 'index' %>
+      </tbody>
+</table>
+
+</div>
+<div id="teacher-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div id="inner-teacher-modal" class="modal-content"></div>
+  </div>
+</div>
+
+

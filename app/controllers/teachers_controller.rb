@@ -20,7 +20,7 @@ class TeachersController < ApplicationController
 	end
 
 	def edit
-		@teacher = Teacher.new
+		@teacher = Teacher.find_by_id(params[:id])
 		@subjects = Subject.all
 	end
 
@@ -38,11 +38,13 @@ class TeachersController < ApplicationController
 
 
 	def delete
-		@teacher = Teacher.find_by_id(:params[:id])
+		@teacher = Teacher.find_by_id(params[:teacher_id])
 	end
 
 	def destroy
-		
+		@teachers = Teacher.all
+      	@teacher = Teacher.find(params[:id])
+     	@teacher.destroy
 	end
 
 	def find_by_filters

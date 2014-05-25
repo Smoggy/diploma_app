@@ -38,12 +38,12 @@ class SubjectsController < ApplicationController
 	end
 
 	def delete
-		@subject = Subject.find(params[:id])
+		@subject = Subject.find(params[:subject_id])
 	end
 
 	def destroy
-		@subjects = Group.all
-      	@subject = Group.find(params[:id])
+		@subjects = Subject.all
+      	@subject = Subject.find(params[:id])
      	@subject.destroy
 	end
 
