@@ -116,3 +116,7 @@ table {
   display: inline-block;
   border-radius: 50%;
 }
+
+.content {
+  margin-left: 500px;
+}
