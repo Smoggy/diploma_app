@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'tzinfo-data'
 gem 'axlsx'
-
+gem 'faker'
 
 group :development do
 	gem 'spring'

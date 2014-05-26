@@ -33,7 +33,7 @@ class TeachersController < ApplicationController
    		 respond_to do |format|
        		format.html { render :index }
        		format.js
-    	end
+    	 end
 	end
 
 
@@ -48,7 +48,9 @@ class TeachersController < ApplicationController
 	end
 
 	def find_by_filters
+		@teachers = Teacher.find_by_filters params[:filters]
 
+		render 'index'
 	end
 
 
