@@ -1,7 +1,7 @@
 
 
 
-<%= link_to "Excel", xls_index_path,  class: "btn btn-primary" %>
+<%= link_to("Add", new_student_path(@group), remote: true,  class: "btn btn-primary") %>
 <div class="table-responsive">
 <table class="table table-striped">
       <thead>
@@ -10,14 +10,12 @@
           <th>Address</th>
           <th>Phone</th>
           <th>Email</th>
-          <th>School</th>
-          <th>Group</th>
-          <th>Edit</th>
+          <th>Delete</th>
           <th>Delete</th>
         </tr>
       </thead>
       <tbody class="student-index" >
-      <%= render 'all_index' %>
+      <%= render 'index' %>
       </tbody>
 </table>
 

@@ -53,6 +53,20 @@ class TeachersController < ApplicationController
 		render 'index'
 	end
 
+	def xls_creator
+    package = Axlsx::Package.new
+    workbook = package.workbook
+    @teachers = Teacher.all.includes(:subject)
+    workbook.add_worksheet(name: "Basic work sheet") do |sheet|
+      sheet.add_row ["First Name", "Last Name", "Subject", "Email", "Phone"]
+      @teachers.each do |t|
+         sheet.add_row [t.first_name, t.last_name, t.subject.name, t.email, t.phone]
+      end
+    end
+    package.serialize "Basic.xlsx"
+    send_file("#{Rails.root}/Basic.xlsx", filename: "Basic.xlsx", type: "application/vnd.ms-excel")
+  end
+
 
 	private
 

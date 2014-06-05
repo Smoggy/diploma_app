@@ -23,3 +23,33 @@ subjects = [math, history, english]
 		is_candidate: false
 	)
 end
+
+
+3.times do
+	Group.create(
+		name: Faker::Company.name
+	)
+end
+
+3.times do
+	School.create(
+		name: Faker::Company.name,
+		address: Faker::Address.street_address,
+		phone: Faker::PhoneNumber.cell_phone
+	)
+end
+
+groups = Group.all
+schools = School.all
+
+30.times do
+	Student.create(
+		first_name: Faker::Name.first_name,
+		last_name: Faker::Name.last_name,
+		email: Faker::Internet.email,
+		address: Faker::Address.street_address,
+		phone_number: Faker::PhoneNumber.cell_phone,
+		group: groups.sample,
+		school: schools.sample
+	)
+end

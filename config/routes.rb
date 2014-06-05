@@ -29,6 +29,10 @@ Rails.application.routes.draw do
     get 'students_of_group' => 'students#students_of_group'
   end
 
+  controller :teachers do
+    get 'teacher_index' => 'teachers#xls_creator'
+  end
+
   controller :static_pages do 
     get '/index' => 'static_pages#index'
 

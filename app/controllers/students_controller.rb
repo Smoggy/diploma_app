@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
   end
 
   def index
-  	@students = Student.all
+  	@students = Student.all.includes(:group).includes(:school)
   end
 
 
@@ -62,9 +62,9 @@ class StudentsController < ApplicationController
     workbook = package.workbook
     @students = Student.all
     workbook.add_worksheet(name: "Basic work sheet") do |sheet|
-      sheet.add_row ["First Name", "Last Name", "Marks", "Percentage", "Grade", "Remark"]
+      sheet.add_row ["Student Name", "Address", "Phone", "Email", "School", "Group"]
       @students.each do |s|
-         sheet.add_row [s.first_name, s.last_name, s.address, s.email]
+         sheet.add_row ["#{s.first_name} #{s.last_name}", s.address, s.phone_number, s.email, s.school.name, s.group.name]
       end
     end
     package.serialize "Basic.xlsx"
